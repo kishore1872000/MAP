@@ -19,9 +19,9 @@
 HTML, CSS, javascript
 
 ## Features
-Scale: The relationship between distances on the map and actual distances on Earth
-Symbols: Used to demonstrate a clear point
-Grids: A common feature of maps
-Distance: A component of maps
-Direction: A component of maps
-Legend or key: Should be easy to interpret
+Scale: The relationship between distances on the map and actual distances on Earth.
+Symbols: Used to demonstrate a clear point.
+Grids: A common feature of maps.
+Distance: A component of maps.
+Direction: A component of maps.
+Legend or key: Should be easy to interpret.

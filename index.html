@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <title>Map</title>
+    <style>
+        #map {
+            width: 600px;
+            height: 600px;
+        }
+        .pop{
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        const map = L.map('map');
+        map.setView([13.2233, 80.2594], 7);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const customIcon=L.icon({
+            iconUrl:'./map.png',
+            iconSize:[70,70],
+        })
+
+        const date={
+            gatwick:{
+                coords:[13.1189, 80.1026],
+                title:"avadi",
+                address:`
+                <b>avadi</b><br>
+                123<br>
+                chennai<br>
+                `,
+                website:"www.google.com",
+                phone:123,
+            },
+            chennai:{
+                coords:[13.087, 80.2687],
+            },
+            airforce:{
+                coords:[13.15432, 80.10142],
+            }
+        }
+
+        for(let key in date){
+       
+            const city=date[key];
+       
+        L.marker(city.coords, {
+            title: city.title,
+            icon:customIcon,
+        }).bindPopup(`
+        <span class="popup">
+        ${city.address}
+        123<br>
+        AIR force nager<br>
+        <a hreaf="${city.website}" target="_bank">webside</a> <br>
+        call:<a href="tel:${city.phone}">${city.phone}</a>
+        </span >
+        `) .addTo(map)
+    }
+    </script>
+</body>
+
+</html>
